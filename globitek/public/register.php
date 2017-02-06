@@ -26,8 +26,6 @@
 	  else if (!check_names($first_name, "name"))
 		  array_push($errors, "First name contains invalid characters");
 	  
-		  
-	  
 	  if (is_blank($last_name))
 		  array_push($errors, "Last name cannot be blank.");
 	  else if(!has_length($last_name, ['min' => 2, 'max' => 255]))
@@ -55,7 +53,7 @@
 		  array_push($errors, "Username is already taken");
 	  
 	  // if there were no errors, submit data to database
-	if (empty($errors)){
+       if (empty($errors)){
       
        $sql = 'insert into globitek.users (first_name, last_name, email, username) values (\'' . $first_name . '\', \'' . $last_name . '\', \'' . $email . '\', \'' . $username . '\');';
 
@@ -64,7 +62,7 @@
 		 
          if($result) {
          db_close($db);
-		 header("Location: registration_success.php");
+         header("Location: registration_success.php");
 
         } 
 	   else {
@@ -74,7 +72,7 @@
            db_close($db);
            exit;
         }
-	}
+     }
 	  
   }
   
